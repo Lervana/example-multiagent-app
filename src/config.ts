@@ -7,6 +7,9 @@ export type TConfig = {
   buyersCarsGoal: number;
   minCashPerCar: number;
   maxCashPerCar: number;
+  lineWidth: number;
+  bookTime: number;
+  maxCarBuyAttempts: number;
 };
 
 const config: TConfig = {
@@ -16,8 +19,11 @@ const config: TConfig = {
   buyersCount: 3,
   sellersCarsCount: 8,
   buyersCarsGoal: 3,
-  minCashPerCar: 25000,
-  maxCashPerCar: 250000,
+  minCashPerCar: 5000,
+  maxCashPerCar: 150000,
+  lineWidth: 150,
+  bookTime: 2000,
+  maxCarBuyAttempts: 10,
 };
 
 export default config;

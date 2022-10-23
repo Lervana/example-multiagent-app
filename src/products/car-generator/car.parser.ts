@@ -1,5 +1,5 @@
-import { TCarData } from "./car.generator";
-import { Car } from "../car/car";
+import { Car } from '../car/car';
+import { TCarData } from './car.generator';
 
 export const getCarsCount = (data: TCarData[]) => {
   let counter = 0;
@@ -19,15 +19,17 @@ export const carDataToCarsList = (data: TCarData[]): Car[] => {
   data.forEach((carSet) => {
     carSet.generations.forEach((generation) => {
       generation.versions.forEach((version) => {
-        const car = new Car({
-          make: carSet.make,
-          model: carSet.model,
-          bodyStyle: carSet.bodyStyle,
-          yearOfProduction: version.yearOfProduction,
-          engineCapacity: version.engineCapacity,
-          price: version.avgPrice,
-          additionalCosts: 0,
-        });
+        const car = new Car(
+          '',
+          carSet.make,
+          carSet.model,
+          carSet.bodyStyle,
+          version.yearOfProduction,
+          version.engineCapacity,
+          version.avgPrice,
+          0,
+          0,
+        );
 
         carsList.push(car);
       });

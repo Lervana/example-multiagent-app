@@ -1,14 +1,15 @@
-import { getCarsCount } from "./products";
-import carsData from "./data/cars.json";
-import { Central } from "./central";
+import { Core } from './core';
+import carsData from './data/cars.json';
+import { getCarsCount } from './products';
+import { log } from './utils';
 
 const carsCount = getCarsCount(carsData);
-
-console.log("MuultiAgent - Car exchange");
+console.log('MuultiAgent - Car exchange');
 console.log(`Cars data count: ${carsCount}`);
 
-const central = new Central();
-
-central.listSellers();
-central.listBuyers();
-central.startExchange().then(() => process.exit(0));
+const core = new Core(carsData);
+core.showInitialState();
+core.startExchange().then(() => {
+  log('Closing app...');
+  process.exit(0);
+});

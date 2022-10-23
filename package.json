@@ -1,0 +1,25 @@
+{
+  "name": "uz-multiagent-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Lervana/uz-multiagent-app.git",
+  "author": "Katarzyna Dadek <k.dadek@lervana.dev>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "npx nodemon src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.3",
+    "@types/uuid": "^8.3.4",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "typescript": "^4.8.4",
+    "yarn": "^1.22.19"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
+}

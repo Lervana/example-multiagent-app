@@ -1,0 +1,106 @@
+[
+  {
+    "make": "Nissan",
+    "model": "Micra",
+    "bodyStyle": "Hatchback",
+    "generations": [{
+        "name": "K14",
+        "versions": [{
+          "yearOfProduction": 2017,
+          "engineCapacity": 900,
+          "avgPrice": 35518
+        }, {
+          "yearOfProduction": 2018,
+          "engineCapacity": 900,
+          "avgPrice": 53900
+        }, {
+          "yearOfProduction": 2019,
+          "engineCapacity": 1000,
+          "avgPrice": 50000
+        }, {
+          "yearOfProduction": 2020,
+          "engineCapacity": 1000,
+          "avgPrice": 69200
+        }]
+      }]
+  },
+  {
+    "make": "Subaru",
+    "model": "Forester",
+    "bodyStyle": "SUV",
+    "generations": [
+      {
+        "name": "IV",
+        "versions": [
+          {
+            "yearOfProduction": 2016,
+            "engineCapacity": 2000,
+            "avgPrice": 94500
+          },
+          {
+            "yearOfProduction": 2017,
+            "engineCapacity": 2000,
+            "avgPrice": 95120
+          },
+          {
+            "yearOfProduction": 2019,
+            "engineCapacity": 2000,
+            "avgPrice": 141900
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "make": "Audi",
+    "model": "A6",
+    "bodyStyle": "Kombi",
+    "generations": [
+      {
+        "name": "C6",
+        "versions": [
+          {
+            "yearOfProduction": 2007,
+            "engineCapacity": 2000,
+            "avgPrice": 23950
+          },
+          {
+            "yearOfProduction": 2009,
+            "engineCapacity": 2000,
+            "avgPrice": 33380
+          }
+        ]
+      },
+      {
+        "name": "C7",
+        "versions": [
+          {
+            "yearOfProduction": 2013,
+            "engineCapacity": 3000,
+            "avgPrice": 73000
+          },
+          {
+            "yearOfProduction": 2017,
+            "engineCapacity": 1800,
+            "avgPrice": 122691
+          }
+        ]
+      },
+      {
+        "name": "C8",
+        "versions": [
+          {
+            "yearOfProduction": 2020,
+            "engineCapacity": 2000 ,
+            "avgPrice": 275900
+          },
+          {
+            "yearOfProduction": 2021,
+            "engineCapacity": 2000,
+            "avgPrice": 365100
+          }
+        ]
+      }
+    ]
+  }
+]

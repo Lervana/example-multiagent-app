@@ -7,7 +7,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "npx nodemon src/index.ts"
+    "dev": "npx nodemon src.v2/index.ts",
+    "build": "npx tsc",
+    "start": "node build/index.js"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.4.0",

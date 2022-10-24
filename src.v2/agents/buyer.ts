@@ -44,7 +44,7 @@ class Buyer extends ExchangeAgent {
     return filtered;
   };
 
-  private evaluateIfAbleToBuy = (car: Car) => car.totalPrice <= this.cash / this._carsCountGoal;
+  private evaluateIfAbleToBuy = (car: Car) => car.totalPrice <= this.cash / (this._carsCountGoal - this.cars.length);
   private evaluateIfNewest = (car: Car, bestYear: number) => car.yearOfProduction === bestYear;
   private evaluateIfBestEngine = (car: Car, bestEngine: number) => car.engineCapacity === bestEngine;
 

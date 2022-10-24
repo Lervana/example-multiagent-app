@@ -47,8 +47,8 @@ const config: TConfig = {
       minCashPerCar: 5000,
       maxCashPerCar: 100000,
     },
-    minDecisionWait: 1,
-    maxDecisionWait: 5,
+    minDecisionWait: 100,
+    maxDecisionWait: 1000,
   },
   cars: {
     priceChangeFactor: {

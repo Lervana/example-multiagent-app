@@ -1,10 +1,17 @@
 import delay from 'delay';
 import { v4 } from 'uuid';
 
-import config from '../config';
 import { Car } from '../products';
-import { LINE_WIDTH, getRandomInt, logFramed, logLine, plnFormatter } from '../utils';
+import { getRandomInt, logFramed, logLine, plnFormatter } from '../utils';
 import ExchangeAgent, { ROLE } from './exchange-agent';
+
+export type TSellerProps = {
+  cars: Car[];
+  reservationTime: number;
+  id?: string;
+  maxLineWidth: number;
+  startCarsCount: number;
+};
 
 export type TOffer = {
   id: string;
@@ -16,18 +23,22 @@ export type TOffer = {
 };
 
 class Seller extends ExchangeAgent {
-  private reservations: Record<string, string | undefined> = {};
+  private readonly _reservationTime: number;
+  private readonly _maxLineWidth: number;
   private offers: Record<string, TOffer> = {};
-  private _reservationTime: number;
+  private reservations: Record<string, string | undefined> = {};
+  private _startCarsCount: number;
 
-  constructor(cars: Car[], reservationTime: number, id?: string) {
+  constructor({ id, cars, reservationTime, maxLineWidth, startCarsCount }: TSellerProps) {
     super(cars, ROLE.SELLER, id);
     this._reservationTime = reservationTime;
+    this._maxLineWidth = maxLineWidth;
+    this._startCarsCount = startCarsCount;
   }
 
   showState() {
     super.showState();
-    this.cars.forEach((car, index) => car.printAsRecord(index, LINE_WIDTH));
+    this.cars.forEach((car, index) => car.printAsRecord(index, this._maxLineWidth));
     logLine();
   }
 
@@ -52,7 +63,6 @@ class Seller extends ExchangeAgent {
 
   makeReservation = async (carId: string, buyerId: string) => {
     this.reservations[carId] = buyerId;
-
     await delay(this._reservationTime);
     this.reservations[carId] = undefined;
   };
@@ -72,11 +82,14 @@ class Seller extends ExchangeAgent {
   showSummary() {
     super.showSummary();
 
-    const title = `${this.getTileWithId()}`.padStart(11);
-    const carsCount = config.agents.sellers.startCarsCount - this.cars.length;
-    const cash = plnFormatter.format(this.cash).padStart(config.app.lineWidth - (title.length + 117));
+    const space = `${''.padEnd(10, '-')}`;
+    const title = `${this.getTileWithId()}`;
+    const carsCount = (this._startCarsCount - this.cars.length).toString().padStart(3, '-');
+    const cashText = `| Cash: `.padStart(75, '-');
+    const cash = plnFormatter.format(this.cash).padStart(24, '-');
+    const info = `${title} | ${space} |  SOLD  | ${carsCount} car(s) | ${cashText}${cash}`;
 
-    logFramed(`${title} SOLD ${carsCount} car(s) ${''.padEnd(90)}| Cash: ${cash}`);
+    logFramed(info);
   }
 }
 

@@ -7,11 +7,13 @@ class Agent {
   private _push?: (taskAction: TAction) => string;
   private _getResult?: (id: string) => Promise<any>;
   private _actions: Record<string, (args?: string[]) => TAction>;
+  private _colorText: (message: string) => string;
   public id: string;
 
   constructor(id?: string) {
     this.id = id ?? v4();
     this._actions = {};
+    this._colorText = (text) => text;
   }
 
   public set push(action: (taskAction: TAction) => string) {
@@ -24,6 +26,14 @@ class Agent {
 
   public set actions(actions: Record<string, (args?: string[]) => TAction>) {
     this._actions = actions;
+  }
+
+  public set colorText(action: (message: string) => string) {
+    this._colorText = action;
+  }
+
+  public get colorText() {
+    return this._colorText;
   }
 
   public get actions() {

@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.4.0",
+    "@types/cli-color": "^2.0.2",
     "@types/node": "^18.11.3",
     "@types/uuid": "^8.3.4",
     "nodemon": "^2.0.20",
@@ -23,6 +24,7 @@
     "yarn": "^1.22.19"
   },
   "dependencies": {
+    "cli-color": "^2.0.3",
     "dayjs": "^1.11.6",
     "delay": "^5.0.0",
     "fastq": "^1.13.0",

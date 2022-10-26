@@ -1,4 +1,4 @@
-# uz-multiagent-app
+# example-multiagent-app
 
 # Example description
 

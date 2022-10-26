@@ -32,13 +32,35 @@ Zadania:
 2. Install all packages: `npm install` or `yarn`
 
 # Run
-1. Development mode (after changes app will restart): `npm run dev` or `yarn dev`
-2. Production mode: 
-    ```
+1. Development mode (after changes app will restart):
+   
+   _Optionally set node version:_
+   ```
+   nvm install 16.18.0
+   nvm use 16.18.0
+   ```
+   _Run dev:_
+   ```
+   npm run dev
+   ```
+   _or_
+   ```
+   yarn dev
+   ```
+
+2. Production mode:
+   _Optionally set node version:_
+   ```
+   nvm install 16.18.0
+   nvm use 16.18.0
+   ```
+
+   _Build and then run start:_
+   ```
     npm run build
     npm run start
-    ```
-    or
+   ```
+    _or_
     ```shell
     yarn build
     yarn start
